@@ -1,11 +1,16 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
 #include <stdio.h>
+#include <string>
+#include <iostream>
+
 #ifdef WIN32
 #include <windows.h>
 #define sleep(x) Sleep(x)
 #endif
-#include <string>
+
+#define LOG_ERR(x) print_error(x)
 
 static const int HEIGHT = 600;
 static const int WIDTH = 800;
@@ -25,18 +30,23 @@ bool loadShaderFromFile(const char* fileName, std::string& out) {
 	return res;
 }
 
+void print_error(const char *msg)
+{
+	std::cerr << "ERROR:" << msg << std::endl;
+}
+
 int main(int argc, char** argv) {
 	int res = 0;
 	do {
 		if (!glfwInit()) {
-			fprintf(stderr, "ERROR: Could not start GLFW");
+			LOG_ERR("Could not start GLFW");
 			res = 1;
 			break;
 		}
 
 		GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, NULL, NULL);
 		if (!window) {
-			fprintf(stderr, "ERROR: could not open a window");
+			LOG_ERR("Could not open a window");
 			res = 1;
 			break;
 		}
@@ -75,7 +85,7 @@ int main(int argc, char** argv) {
 				|| !loadShaderFromFile("fs.glsl", fragment_shader))
 		{
 			res = 1;
-			fprintf(stderr, "ERROR: Unable to load shaders");
+			LOG_ERR("Unable to load shaders");
 			break;
 		}
 
