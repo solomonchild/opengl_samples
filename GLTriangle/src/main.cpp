@@ -66,12 +66,16 @@ int main(int argc, char** argv) {
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LESS);
 
-		float points[] = { 0.0f, 0.5f, 0.0f, 0.5f, -0.5f, 0.0f, -0.5f, -0.5f,
-				0.0f };
+		float points[] = {
+				0.0f, 0.5f, 0.0f,
+				0.5f, 0.5f, 0.0f,
+				0.5f, -0.5f, 0.0f,
+				0.0f, -0.5f, 0.0f,
+				};
 		unsigned int vbo = 0;
 		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points,
+		glBufferData(GL_ARRAY_BUFFER, 12 * sizeof(float), points,
 				GL_STATIC_DRAW);
 
 		unsigned int vao = 0;
@@ -110,7 +114,7 @@ int main(int argc, char** argv) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glUseProgram(shader_programme);
 			glBindVertexArray(vao);
-			glDrawArrays(GL_TRIANGLES, 0, 3);
+			glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glfwPollEvents();
 			glfwSwapBuffers(window);
 		}
