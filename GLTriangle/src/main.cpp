@@ -2,13 +2,28 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #ifdef WIN32
-	#include <windows.h>
-	#define sleep(x) Sleep(x)
+#include <windows.h>
+#define sleep(x) Sleep(x)
 #endif
+#include <string>
 
 static const int HEIGHT = 600;
 static const int WIDTH = 800;
 static const char* TITLE = "Hello Triangle";
+static const std::string PATH_PREFIX = "../shaders/";
+
+bool loadShaderFromFile(const char* fileName, std::string& out) {
+	bool res = false;
+	FILE* file = fopen((PATH_PREFIX + fileName).c_str(), "r");
+	char buf[128];
+	if (file) {
+		while(fread(buf, sizeof(buf), 1, file))
+			out += buf;
+		res = true;
+	}
+	fclose(file);
+	return res;
+}
 
 int main(int argc, char** argv) {
 	int res = 0;
@@ -39,15 +54,13 @@ int main(int argc, char** argv) {
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LESS);
 
-		float points[] = {
-				0.0f, 0.5f, 0.0f,
-				0.5f, -0.5f, 0.0f,
-				-0.5f, -0.5f, 0.0f
-		};
+		float points[] = { 0.0f, 0.5f, 0.0f, 0.5f, -0.5f, 0.0f, -0.5f, -0.5f,
+				0.0f };
 		unsigned int vbo = 0;
 		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glBufferData(GL_ARRAY_BUFFER, 9 * sizeof (float), points, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points,
+				GL_STATIC_DRAW);
 
 		unsigned int vao = 0;
 		glGenVertexArrays(1, &vao);
@@ -56,25 +69,24 @@ int main(int argc, char** argv) {
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLubyte*) NULL);
 
-		const char* vertex_shader =
-		"#version 400\n"
-		"in vec3 vp;"
-		"void main() {"
-		"	gl_Position = ve4 (vp, 1.0);"
-		"}";
+		std::string vertex_shader;
+		std::string fragment_shader;
+		if(!loadShaderFromFile("vs.glsl", vertex_shader)
+				|| !loadShaderFromFile("fs.glsl", fragment_shader))
+		{
+			res = 1;
+			fprintf(stderr, "ERROR: Unable to load shaders");
+			break;
+		}
 
-		const char* fragment_shader =
-		"#version 400\n"
-		"out vec4 frag_colour;"
-		"void main () {"
-		"	frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
-		"}";
+		const char *p_vertex_shader = vertex_shader.c_str();
+		const char *p_fragment_shader = fragment_shader.c_str();
 
 		unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
-		glShaderSource(vs, 1, &vertex_shader, NULL);
+		glShaderSource(vs, 1, &p_vertex_shader, NULL);
 		glCompileShader(vs);
 		unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
-		glShaderSource(fs, 1, &fragment_shader, NULL);
+		glShaderSource(fs, 1,  &p_fragment_shader, NULL);
 		glCompileShader(fs);
 
 		unsigned int shader_programme = glCreateProgram();
@@ -82,8 +94,7 @@ int main(int argc, char** argv) {
 		glAttachShader(shader_programme, vs);
 		glLinkProgram(shader_programme);
 
-
-		while(!glfwWindowShouldClose(window)){
+		while (!glfwWindowShouldClose(window)) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glUseProgram(shader_programme);
 			glBindVertexArray(vao);
