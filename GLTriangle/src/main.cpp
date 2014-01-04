@@ -11,19 +11,21 @@
 #endif
 
 #define LOG_ERR(x) print_error(x)
+#define LOG_STR(x) fprintf(stdout, #x" :%s\n", x)
+#define LOG_INT(x) fprintf(stdout, #x": %d\n", x)
 
 static const int HEIGHT = 600;
 static const int WIDTH = 800;
 static const char* TITLE = "Hello Triangle";
 static const std::string PATH_PREFIX = "../shaders/";
 
-bool loadShaderFromFile(const char* fileName, std::string& out) {
+bool loadShaderFromFile(const char* fileName, std::string &out) {
 	bool res = false;
 	FILE* file = fopen((PATH_PREFIX + fileName).c_str(), "r");
-	char buf[128];
+	char buf[128] = {0};
 	if (file) {
-		while(fread(buf, sizeof(buf), 1, file))
-			out += buf;
+		while(fread(buf, 1, sizeof(buf), file))
+			out += std::string(buf);
 		res = true;
 	}
 	fclose(file);

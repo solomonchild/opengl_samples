@@ -4,7 +4,7 @@ VARIANT:=debug
 CFLAGS:= -g3
 INCLUDES:=
 LDFLAGS:=
-LOCAL_LIBS:= -lglew32 -lglfw3 -lopengl32 -lgdi32
+LOCAL_LIBS:= -lglew32 -lglfw3 -lopengl32 -lgdi32 -lglu32
 
 
 all:$(VARIANT)/$(NAME)
