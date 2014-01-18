@@ -1,0 +1,91 @@
+src/main.cpp:134 GL Context Params:
+src/main.cpp:86 starting GLFW 3.1.0 Win32 WGL MinGW LoadLibrary(winmm)
+include/logging.h:43 GL Context Params:
+include/logging.h:50 GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_CUBE_MAP_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_DRAW_BUFFERS 8
+include/logging.h:50 GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 1024
+include/logging.h:50 GL_MAX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_VARYING_FLOATS 128
+include/logging.h:50 GL_MAX_VERTEX_ATTRIBS 29
+include/logging.h:50 GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_VERTEX_UNIFORM_COMPONENTS 1024
+include/logging.h:57 GL_MAX_VIEWPORT_DIMS 16384 16384
+include/logging.h:61 GL_STEREO 0
+include/logging.h:62 -----------------------------
+src/main.cpp:86 starting GLFW 3.1.0 Win32 WGL MinGW LoadLibrary(winmm)
+include/logging.h:43 GL Context Params:
+include/logging.h:50 GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_CUBE_MAP_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_DRAW_BUFFERS 8
+include/logging.h:50 GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 1024
+include/logging.h:50 GL_MAX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_VARYING_FLOATS 128
+include/logging.h:50 GL_MAX_VERTEX_ATTRIBS 29
+include/logging.h:50 GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_VERTEX_UNIFORM_COMPONENTS 1024
+include/logging.h:57 GL_MAX_VIEWPORT_DIMS 16384 16384
+include/logging.h:61 GL_STEREO 0
+include/logging.h:62 -----------------------------
+src/main.cpp:86 starting GLFW 3.1.0 Win32 WGL MinGW LoadLibrary(winmm)
+include/logging.h:43 GL Context Params:
+include/logging.h:50 GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_CUBE_MAP_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_DRAW_BUFFERS 8
+include/logging.h:50 GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 1024
+include/logging.h:50 GL_MAX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_VARYING_FLOATS 128
+include/logging.h:50 GL_MAX_VERTEX_ATTRIBS 29
+include/logging.h:50 GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_VERTEX_UNIFORM_COMPONENTS 1024
+include/logging.h:57 GL_MAX_VIEWPORT_DIMS 16384 16384
+include/logging.h:61 GL_STEREO 0
+include/logging.h:62 -----------------------------
+src/main.cpp:86 starting GLFW 3.1.0 Win32 WGL MinGW LoadLibrary(winmm)
+include/logging.h:43 GL Context Params:
+include/logging.h:50 GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_CUBE_MAP_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_DRAW_BUFFERS 8
+include/logging.h:50 GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 1024
+include/logging.h:50 GL_MAX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_VARYING_FLOATS 128
+include/logging.h:50 GL_MAX_VERTEX_ATTRIBS 29
+include/logging.h:50 GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_VERTEX_UNIFORM_COMPONENTS 1024
+include/logging.h:57 GL_MAX_VIEWPORT_DIMS 16384 16384
+include/logging.h:61 GL_STEREO 0
+include/logging.h:62 -----------------------------
+src/main.cpp:86 starting GLFW 3.1.0 Win32 WGL MinGW LoadLibrary(winmm)
+include/logging.h:43 GL Context Params:
+include/logging.h:50 GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_CUBE_MAP_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_DRAW_BUFFERS 8
+include/logging.h:50 GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 1024
+include/logging.h:50 GL_MAX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_VARYING_FLOATS 128
+include/logging.h:50 GL_MAX_VERTEX_ATTRIBS 29
+include/logging.h:50 GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_VERTEX_UNIFORM_COMPONENTS 1024
+include/logging.h:57 GL_MAX_VIEWPORT_DIMS 16384 16384
+include/logging.h:61 GL_STEREO 0
+include/logging.h:62 -----------------------------
+src/main.cpp:86 starting GLFW 3.1.0 Win32 WGL MinGW LoadLibrary(winmm)
+include/logging.h:43 GL Context Params:
+include/logging.h:50 GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_CUBE_MAP_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_DRAW_BUFFERS 8
+include/logging.h:50 GL_MAX_FRAGMENT_UNIFORM_COMPONENTS 1024
+include/logging.h:50 GL_MAX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_TEXTURE_SIZE 16384
+include/logging.h:50 GL_MAX_VARYING_FLOATS 128
+include/logging.h:50 GL_MAX_VERTEX_ATTRIBS 29
+include/logging.h:50 GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS 32
+include/logging.h:50 GL_MAX_VERTEX_UNIFORM_COMPONENTS 1024
+include/logging.h:57 GL_MAX_VIEWPORT_DIMS 16384 16384
+include/logging.h:61 GL_STEREO 0
+include/logging.h:62 -----------------------------

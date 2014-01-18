@@ -2,7 +2,7 @@
 NAME:=example.exe
 VARIANT:=debug
 CFLAGS:= -g3
-INCLUDES:=
+INCLUDES:= -Iinclude
 LDFLAGS:=
 LOCAL_LIBS:= -lglew32 -lglfw3 -lopengl32 -lgdi32 -lglu32
 
@@ -11,10 +11,12 @@ all:$(VARIANT)/$(NAME)
 
 ALLSOURCE:=$(wildcard src/*)
 OBJ_FILES := $(addprefix obj/,$(notdir $(ALLSOURCE:.cpp=.o)))
+DEPS := $(OBJ_FILES:.o=.d)
+
 
 obj/%.o: src/%.cpp
 	mkdir -p obj/
-	g++ $(CFLAGS) $(INCLUDES) -c -o $@ $<
+	g++ $(CFLAGS) $(INCLUDES) -c -MMD -MP $< -o $@ 
 
 $(VARIANT)/$(NAME): $(OBJ_FILES)
 	mkdir -p $(VARIANT)
@@ -22,3 +24,6 @@ $(VARIANT)/$(NAME): $(OBJ_FILES)
 
 clean:
 	rm -rf obj debug
+
+-include $(DEPS)
+
