@@ -5,7 +5,7 @@
 
 namespace managers {
 
-static const std::string PATH_PREFIX = "shaders/";
+static const std::string PATH_PREFIX = "../shaders/";
 
 bool ShaderManager::loadShader(const string& filename, string& shader) {
 	bool res = false;
