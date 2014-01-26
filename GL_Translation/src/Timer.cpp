@@ -9,17 +9,20 @@ Timer::Timer(double treshold) :
 		m_treshold(treshold),
 		m_prevTicks(0){
 	updateTimer();
+	m_prevTicks = m_currTicks;
+}
+
+double Timer::getElapsed() {
+	return (m_currTicks - m_prevTicks) / 1000000.0f;
+}
+void Timer::reset() {
+	m_prevTicks = m_currTicks;
 }
 
 bool Timer::isTresholdReached() {
 	updateTimer();
-	double delta = (double) ((m_currTicks - m_prevTicks) / 1000000.0f);
-	LOG_INFO("DELTA: %f", delta);
-	bool res =  delta >= m_treshold;
-	if(res){
-		m_prevTicks = m_currTicks;
-	}
-	return res;
+	double delta = getElapsed();
+	return  delta >= m_treshold;
 }
 
 void Timer::updateTimer() {

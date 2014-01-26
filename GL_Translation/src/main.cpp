@@ -172,30 +172,25 @@ int main(int argc, char** argv) {
 		float last_position_x = 0.0f;
 		float last_position_y = 0.0f;
 		static double SPF = 1 / 60.0f;
-		utility::Timer timer;
+		utility::Timer timer(SPF);
 
 
 		while (!glfwWindowShouldClose(window)) {
-			static double prev_seconds = glfwGetTime();
-			double curr_seconds = glfwGetTime();
-			double elapsed_seconds = curr_seconds - prev_seconds;
-
-			timer.isTresholdReached();
-			if(elapsed_seconds >= SPF){
-				prev_seconds = curr_seconds;
+			if(timer.isTresholdReached()){
 
 				glClear(GL_COLOR_BUFFER_BIT);
 				glUniformMatrix4fv(matrix_location, 1, GL_FALSE, matrix);
 				glBindVertexArray(vao);
 
 				if(fabs(last_position_x)> 1.0f) {
+					LOG_INFO("REACHED");
 					speed_x = -speed_x;
 				}
 				if(fabs(last_position_y)> 1.0f) {
 								speed_y = -speed_y;
 				}
-				matrix[12] = elapsed_seconds * speed_x + last_position_x;
-				matrix[13] = elapsed_seconds * speed_y + last_position_y;
+				matrix[12] = timer.getElapsed() * speed_x + last_position_x;
+				matrix[13] = timer.getElapsed() * speed_y + last_position_y;
 				last_position_x = matrix[12];
 				last_position_y = matrix[13];
 				if(glfwGetKey(window, GLFW_KEY_LEFT)){
@@ -221,6 +216,7 @@ int main(int argc, char** argv) {
 				{
 					speed_y = 0.0f;
 				}
+				timer.reset();
 				glDrawArrays(GL_TRIANGLES, 0, 3);
 				glfwPollEvents();
 				glfwSwapBuffers(window);

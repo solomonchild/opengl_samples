@@ -7,9 +7,13 @@
 #include <mem.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
-#define LOG_ERR(fmt, ...) { fprintf(stderr, "ERROR:"); fprintf(stderr, fmt, ##__VA_ARGS__); fprintf(stderr, "\n");}
-#define LOG_INFO(fmt, ...) fprintf(stdout, fmt"\n", ##__VA_ARGS__)
+#ifndef DEBUG
+	#define LOG_ERR(fmt, ...) { fprintf(stderr, "ERROR:"); fprintf(stderr, fmt, ##__VA_ARGS__); fprintf(stderr, "\n");}
+	#define LOG_INFO(fmt, ...) fprintf(stdout, fmt"\n", ##__VA_ARGS__)
+#else
+	#define LOG_ERR(fmt, ...)
+	#define LOG_INFO(fmt, ...)
+#endif
 
 
 inline void printShaderCompilationOutcome(int index) {

@@ -10,7 +10,8 @@ public:
 	Timer(double treshold = 1 / 30.0f);
 
 	bool isTresholdReached();
-
+	double getElapsed();
+	void reset();
 protected:
 	void updateTimer();
 	uint32_t m_currTicks;
