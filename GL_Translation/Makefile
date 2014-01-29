@@ -4,7 +4,11 @@ VARIANT:=debug
 CFLAGS:= -g3
 INCLUDES:= -Iinclude
 LDFLAGS:=
+ifeq ($(shell uname), Linux)
+LOCAL_LIBS:= -lGLEW -lglfw3 -lglfw -lXrandr -lXi -lrt -lXxf86vm -lglui -lGL -lX11 -lpthread 
+else
 LOCAL_LIBS:= -lglew32 -lglfw3 -lopengl32 -lgdi32 -lglu32
+endif
 
 
 all:$(VARIANT)/$(NAME)

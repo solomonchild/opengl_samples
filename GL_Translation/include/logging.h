@@ -4,7 +4,9 @@
 #include <time.h>
 #include <string>
 #include <stdio.h>
+#ifdef WIN32
 #include <mem.h>
+#endif
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #ifndef DEBUG

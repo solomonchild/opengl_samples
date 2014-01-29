@@ -35,6 +35,10 @@ void glfw_window_size_callback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
 }
 
+void glfw_error_cb(int errorCode, const char* msg)
+{
+	LOG_ERR("Error %d %s", errorCode, msg);
+}
 void update_fps_counter(GLFWwindow* window)
 {
 	static double previous_seconds = glfwGetTime();
@@ -82,18 +86,18 @@ int main(int argc, char** argv) {
 	do {
 
 		std::cout << "Starting GLFW " << glfwGetVersionString() << std::endl;
-
-
+			
+		glfwSetErrorCallback(glfw_error_cb);	
 		if (!glfwInit()) {
 			LOG_ERR("Could not start GLFW");
 			res = 1;
 			break;
 		}
 
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+		//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 		GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, NULL, NULL);
 		if (!window) {
