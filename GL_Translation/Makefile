@@ -13,13 +13,15 @@ endif
 
 all:$(VARIANT)/$(NAME)
 
-ALLSOURCE:=$(wildcard src/*)
-OBJ_FILES := $(addprefix obj/,$(notdir $(ALLSOURCE:.cpp=.o)))
+#ALLSOURCE:=$(filter-out src/test.cpp, $(wildcard src/*/*))
+ALLSOURCE:=$(filter-out src/main.cpp, $(wildcard src/*.cpp)) $(wildcard src/*/*)
+OBJ_FILES := $(addprefix obj/, $(ALLSOURCE:.cpp=.o))
 DEPS := $(OBJ_FILES:.o=.d)
 
 
-obj/%.o: src/%.cpp
-	mkdir -p obj/
+obj/%.o: $(subst obj/, ,$(basename $@))%.cpp
+	echo $(subst obj/, ,$(basename $@))
+	mkdir -p $(basename $@)
 	g++ $(CFLAGS) $(INCLUDES) -c -MMD -MP $< -o $@ 
 
 $(VARIANT)/$(NAME): $(OBJ_FILES)

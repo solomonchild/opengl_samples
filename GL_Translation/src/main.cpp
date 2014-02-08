@@ -76,9 +76,9 @@ int main(int argc, char** argv) {
 	};
 
 	float matrix[] = {
-			1.0f, .0f, .0f, .0f, //1st col
-			.0f, 1.0f, .0f, .0f, //2nd col
-			.0f, .0f, 1.0f, .0f, //3rd col
+			1.0f, .0f, .0f, 0.0f, //1st col
+			.0f, 0.707f, 0.707f, .0f, //2nd col
+			.0f, -0.707f, 0.707f, .0f, //3rd col
 			.0f, .0f, .0f, 1.0f //4th col
 	};
 
@@ -187,7 +187,6 @@ int main(int argc, char** argv) {
 				glBindVertexArray(vao);
 
 				if(fabs(last_position_x)> 1.0f) {
-					LOG_INFO("REACHED");
 					speed_x = -speed_x;
 				}
 				if(fabs(last_position_y)> 1.0f) {
